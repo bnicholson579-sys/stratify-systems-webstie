@@ -1655,7 +1655,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('cli
             '<div class="tr grand"><span>Total Due</span><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">' + fmt(sub) + '</span></div>' +
           '</div></div>' +
           (notes ? '<div class="nb"><div class="nl">Notes</div><div class="nt">' + notes + '</div></div>' : '') +
-          '<div class="pb"><div class="ptl">Payment Terms</div><div class="ptd">Payment is due within 30 days of the ' + payRef + ' (by ' + fmtDate(dueD) + '). Please reference <strong style="color:var(--t)">' + docNum + '</strong> with your payment. Bank transfer preferred — account details available on request.</div></div>' +
+          '<div class="pb"><div class="ptl">Payment Terms</div><div class="ptd">Payment is due within 30 days of the ' + payRef + ' (by ' + fmtDate(dueD) + '). Please reference <strong style="color:var(--t)">' + docNum + '</strong> with your payment via bank transfer.</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:11px;">' +
+            '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:9px 13px;">' +
+              '<div style="font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#71717a;margin-bottom:3px;">BSB</div>' +
+              '<div style="font-size:12px;font-weight:700;color:#fafafa;letter-spacing:.06em;">067-873</div>' +
+            '</div>' +
+            '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:9px 13px;">' +
+              '<div style="font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#71717a;margin-bottom:3px;">Account Number</div>' +
+              '<div style="font-size:12px;font-weight:700;color:#fafafa;letter-spacing:.06em;">2372 6297</div>' +
+            '</div>' +
+          '</div></div>' +
         '</div>' +
         '<div class="ftr"><div class="fl">admin@stratify-systems.com · 0479 092 667 · ABN: 85 187 912 889</div><div class="fr">stratifysystems.com.au</div></div>' +
       '</div>' +
