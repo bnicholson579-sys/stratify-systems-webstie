@@ -1213,6 +1213,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('cli
   const ADMIN_EMAIL = 'admin@stratify-systems.com';
   const ADMIN_PASS  = 'Adm1n@Stratify';
 
+  // One-time reset: invoice sequence back to 0 (INV-0001 on next use)
+  if (!localStorage.getItem('ss_adm_inv_reset_v1')) {
+    localStorage.setItem('ss_adm_inv_seq', 0);
+    localStorage.setItem('ss_adm_inv_reset_v1', '1');
+  }
+
   const S = {
     get: k => { try { return JSON.parse(localStorage.getItem('ss_adm_' + k)); } catch(e) { return null; } },
     set: (k, v) => localStorage.setItem('ss_adm_' + k, JSON.stringify(v))
