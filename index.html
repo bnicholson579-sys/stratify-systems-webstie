@@ -297,6 +297,110 @@
     @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.svc-grid,.testi-grid,.pricing-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.steps{grid-template-columns:1fr}.steps-wrap::before{display:none}.footer-top{grid-template-columns:1fr;gap:28px}.price-card.featured{transform:none}}
     @media(max-width:480px){.stats-grid{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--glass-b)}.hero-btns,.tech-chips{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}.svc-grid{grid-template-columns:1fr}.time-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){.orb,.badge-dot,.glitch-host::before,.glitch-host::after,.glitch-main,.about-ring,.about-ring-2{animation:none}.hero-h1 .w,.hero-badge,.hero-p,.hero-btns,.hero-trust,.tech-chips{opacity:1;transform:none;animation:none}.reveal{opacity:1;transform:none;transition:none}#hero-canvas{display:none}}
+
+    /* ── ADMIN SYSTEM ── */
+    .btn-admin{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--text-muted);padding:7px 16px;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;font-family:inherit;margin-right:8px;white-space:nowrap}
+    .btn-admin:hover{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.3);color:var(--text)}
+    .adm-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+    .adm-overlay.open{opacity:1;pointer-events:all}
+    .adm-login-box{background:var(--bg-2);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px;width:100%;max-width:400px;transform:translateY(14px);transition:transform .25s}
+    .adm-overlay.open .adm-login-box{transform:translateY(0)}
+    .adm-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+    .adm-field label{font-size:.8rem;font-weight:600;color:var(--text-muted)}
+    .adm-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;color:var(--text);font-size:.875rem;font-family:inherit;outline:none;transition:border-color .2s;width:100%}
+    .adm-input:focus{border-color:rgba(124,58,237,.5)}
+    .adm-input.err{border-color:rgba(239,68,68,.5)!important}
+    .adm-err{font-size:.8rem;color:#f87171;margin-bottom:10px;display:none}
+    .adm-err.show{display:block}
+    .adm-btn{width:100%;padding:13px;border:none;border-radius:10px;background:var(--grad);color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit;transition:opacity .2s,transform .2s;margin-top:8px}
+    .adm-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .adm-cancel-btn{width:100%;padding:11px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:transparent;color:var(--text-muted);font-weight:600;font-size:.875rem;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:8px}
+    .adm-cancel-btn:hover{background:rgba(255,255,255,.04);color:var(--text)}
+    .adm-panel{position:fixed;inset:0;z-index:9998;background:var(--bg);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s cubic-bezier(.25,.8,.25,1)}
+    .adm-panel.open{transform:translateX(0)}
+    .adm-topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.06);background:var(--bg-2);flex-shrink:0}
+    .adm-topbar-title{font-size:.975rem;font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .adm-topbar-right{display:flex;gap:10px;align-items:center}
+    .adm-body{display:flex;flex:1;overflow:hidden}
+    .adm-sidebar{width:256px;flex-shrink:0;border-right:1px solid rgba(255,255,255,.06);background:var(--bg-2);display:flex;flex-direction:column;overflow:hidden}
+    .adm-sidebar-hdr{padding:14px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;gap:10px}
+    .adm-sidebar-hdr h3{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub)}
+    .adm-client-list{flex:1;overflow-y:auto;padding:8px}
+    .adm-client-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;cursor:pointer;transition:background .18s;margin-bottom:3px;border:1px solid transparent}
+    .adm-client-item:hover{background:rgba(255,255,255,.04)}
+    .adm-client-item.active{background:rgba(124,58,237,.09);border-color:rgba(124,58,237,.2)}
+    .adm-client-av{width:34px;height:34px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:#fff;flex-shrink:0}
+    .adm-client-nm{font-size:.875rem;font-weight:600;line-height:1.2;color:var(--text)}
+    .adm-client-sub{font-size:.72rem;color:var(--text-sub)}
+    .adm-main{flex:1;overflow-y:auto;padding:28px}
+    .adm-welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text-sub);text-align:center;gap:14px}
+    .adm-welcome svg{opacity:.16;width:56px;height:56px}
+    .adm-welcome p{font-size:.9rem}
+    .adm-cl-detail{display:none}
+    .adm-cl-detail.show{display:block}
+    .adm-det-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06);gap:16px}
+    .adm-det-name{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-bottom:4px}
+    .adm-det-meta{font-size:.85rem;color:var(--text-muted)}
+    .adm-det-acts{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+    .adm-sm-btn{padding:7px 14px;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text-muted);font-family:inherit;transition:all .18s;display:inline-flex;align-items:center;gap:5px}
+    .adm-sm-btn:hover{background:rgba(255,255,255,.09);color:var(--text)}
+    .adm-sm-btn.primary{background:var(--grad);border-color:transparent;color:#fff}
+    .adm-sm-btn.primary:hover{opacity:.88;transform:translateY(-1px)}
+    .adm-sm-btn.danger{border-color:rgba(239,68,68,.28);color:#f87171}
+    .adm-sm-btn.danger:hover{background:rgba(239,68,68,.09)}
+    .adm-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:28px}
+    .adm-info-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:13px 16px}
+    .adm-info-lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-sub);margin-bottom:5px}
+    .adm-info-val{font-size:.85rem;color:var(--text);font-weight:500;word-break:break-word;line-height:1.4}
+    .adm-sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .adm-sec-hdr h3{font-size:.975rem;font-weight:700;letter-spacing:-.02em}
+    .adm-proj-tbl{width:100%;border-collapse:collapse;font-size:.875rem}
+    .adm-proj-tbl th{text-align:left;padding:10px 14px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-sub);border-bottom:1px solid rgba(255,255,255,.06)}
+    .adm-proj-tbl td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
+    .adm-proj-tbl tr:last-child td{border-bottom:none}
+    .adm-proj-tbl tbody tr:hover td{background:rgba(255,255,255,.015)}
+    .proj-nm{font-weight:600;color:var(--text)}
+    .proj-ds{font-size:.78rem;color:var(--text-sub);margin-top:2px}
+    .prog-badge{display:inline-flex;align-items:center;padding:5px 11px;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.02em;position:relative}
+    .prog-badge::after{content:'▾';margin-left:5px;font-size:.65rem;opacity:.65}
+    .prog-badge.not-started{background:rgba(113,113,122,.15);color:#a1a1aa}
+    .prog-badge.started{background:rgba(59,130,246,.15);color:#93c5fd}
+    .prog-badge.near-completion{background:rgba(251,191,36,.15);color:#fcd34d}
+    .prog-badge.completed{background:rgba(34,197,94,.15);color:#86efac}
+    .doc-badge{display:inline-flex;align-items:center;padding:5px 11px;border-radius:100px;font-size:.75rem;font-weight:700;position:relative}
+    .doc-badge::after{content:'▾';margin-left:5px;font-size:.65rem;opacity:.65}
+    .doc-badge.none{background:rgba(255,255,255,.06);color:var(--text-sub)}
+    .doc-badge.quote{background:rgba(124,58,237,.15);color:var(--accent-light)}
+    .doc-badge.ready-to-invoice{background:rgba(251,191,36,.15);color:#fcd34d}
+    .doc-badge.invoice-sent{background:rgba(34,197,94,.15);color:#86efac}
+    .badge-sel{background:transparent;border:none;color:inherit;font-size:inherit;font-weight:inherit;font-family:inherit;cursor:pointer;outline:none;padding:0;-webkit-appearance:none;appearance:none}
+    .adm-form-ov{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+    .adm-form-ov.open{opacity:1;pointer-events:all}
+    .adm-form-box{background:var(--bg-2);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;width:100%;max-width:540px;max-height:88vh;overflow-y:auto;transform:translateY(10px);transition:transform .2s}
+    .adm-form-ov.open .adm-form-box{transform:translateY(0)}
+    .adm-form-ttl{font-size:1.15rem;font-weight:800;letter-spacing:-.03em;margin-bottom:20px}
+    .adm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .adm-form-grid .full{grid-column:1/-1}
+    .adm-form-acts{display:flex;gap:10px;margin-top:22px;justify-content:flex-end}
+    .adm-doc-ov{position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.84);backdrop-filter:blur(14px);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .2s}
+    .adm-doc-ov.open{opacity:1;pointer-events:all}
+    .adm-doc-tb{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--bg-2);border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+    .adm-doc-body{flex:1;overflow-y:auto;padding:32px;display:flex;flex-direction:column;align-items:center;gap:24px}
+    .adm-doc-form{width:100%;max-width:700px;background:var(--bg-2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px}
+    .adm-doc-form h3{font-size:.875rem;font-weight:700;margin-bottom:14px;letter-spacing:-.01em}
+    .adm-items-tbl{width:100%;border-collapse:collapse;margin-bottom:12px}
+    .adm-items-tbl th{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-sub);padding:8px 8px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left}
+    .adm-items-tbl th.r{text-align:right}
+    .adm-items-tbl td{padding:5px 5px;vertical-align:middle}
+    .adm-item-in{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 9px;color:var(--text);font-size:.84rem;font-family:inherit;outline:none;transition:border-color .2s;width:100%}
+    .adm-item-in:focus{border-color:rgba(124,58,237,.4)}
+    .adm-item-del{background:rgba(239,68,68,.09);border:1px solid rgba(239,68,68,.15);color:#f87171;border-radius:6px;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;line-height:1;transition:background .18s;font-family:inherit;flex-shrink:0}
+    .adm-item-del:hover{background:rgba(239,68,68,.22)}
+    .adm-totals{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin-top:10px}
+    .adm-tot-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:.875rem;color:var(--text-muted)}
+    .adm-tot-row.grand{font-size:1.05rem;font-weight:800;color:var(--text);border-top:1px solid rgba(255,255,255,.1);margin-top:8px;padding-top:12px}
+    .adm-tot-row.sep{border-top:1px solid rgba(255,255,255,.06);margin-top:6px;padding-top:10px}
+    .adm-tot-row.small{font-size:.8rem;color:var(--text-sub)}
   </style>
 </head>
 <body>
@@ -325,6 +429,10 @@
       <li><a href="#results">Results</a></li>
       <li><a href="#contact" class="btn-nav">Book a Call</a></li>
     </ul>
+    <button class="btn-admin" id="adm-nav-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Admin
+    </button>
     <button class="hamburger" id="hbg" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -903,6 +1011,661 @@ document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('cli
   if (!localStorage.getItem('stratify_cookie')) setTimeout(() => banner.classList.add('show'), 1800);
   document.getElementById('cookie-accept').addEventListener('click', () => { localStorage.setItem('stratify_cookie', '1'); banner.classList.remove('show'); });
   document.getElementById('cookie-decline').addEventListener('click', () => { localStorage.setItem('stratify_cookie', '0'); banner.classList.remove('show'); });
+})();
+</script>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ADMIN SYSTEM
+     ════════════════════════════════════════════════════════════════════ -->
+
+<!-- Login overlay -->
+<div class="adm-overlay" id="adm-login-ov">
+  <div class="adm-login-box">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;">
+      <div style="width:40px;height:40px;border-radius:11px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <defs><linearGradient id="adm-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs>
+          <rect x="3" y="11" width="18" height="11" rx="2" stroke="url(#adm-lg)"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="url(#adm-lg)"/>
+        </svg>
+      </div>
+      <div>
+        <div style="font-size:1.15rem;font-weight:800;letter-spacing:-.03em;">Admin Portal</div>
+        <div style="font-size:.78rem;color:var(--text-sub);margin-top:1px;">Stratify Systems — Internal</div>
+      </div>
+    </div>
+    <div class="adm-field">
+      <label for="adm-ei">Email</label>
+      <input class="adm-input" id="adm-ei" type="email" placeholder="admin@stratify-systems.com" autocomplete="username">
+    </div>
+    <div class="adm-field">
+      <label for="adm-pi">Password</label>
+      <input class="adm-input" id="adm-pi" type="password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <div class="adm-err" id="adm-lerr">Incorrect email or password.</div>
+    <button class="adm-btn" id="adm-login-btn">Sign In</button>
+    <button class="adm-cancel-btn" id="adm-login-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- Admin panel (full screen) -->
+<div class="adm-panel" id="adm-panel">
+  <div class="adm-topbar">
+    <div>
+      <div class="adm-topbar-title">Stratify Systems — Admin</div>
+      <div style="font-size:.72rem;color:var(--text-sub);margin-top:2px;">Client &amp; Project Management</div>
+    </div>
+    <div class="adm-topbar-right">
+      <button class="adm-sm-btn primary" id="adm-add-cl-btn">+ Add Client</button>
+      <button class="adm-sm-btn" id="adm-logout-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Logout
+      </button>
+    </div>
+  </div>
+  <div class="adm-body">
+    <!-- Sidebar -->
+    <div class="adm-sidebar">
+      <div class="adm-sidebar-hdr">
+        <h3>Clients</h3>
+        <input class="adm-input" id="adm-search" placeholder="Search clients..." style="font-size:.8rem;padding:8px 12px;">
+      </div>
+      <div class="adm-client-list" id="adm-cl-list"></div>
+    </div>
+    <!-- Main area -->
+    <div class="adm-main">
+      <div class="adm-welcome" id="adm-welcome">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <p>Select a client from the sidebar<br>or add your first one above.</p>
+      </div>
+      <div class="adm-cl-detail" id="adm-cl-detail">
+        <div class="adm-det-hdr">
+          <div>
+            <div class="adm-det-name" id="adm-det-name"></div>
+            <div class="adm-det-meta" id="adm-det-meta"></div>
+          </div>
+          <div class="adm-det-acts">
+            <button class="adm-sm-btn" id="adm-edit-cl">Edit Client</button>
+            <button class="adm-sm-btn danger" id="adm-del-cl">Delete Client</button>
+          </div>
+        </div>
+        <div class="adm-info-grid" id="adm-info-grid"></div>
+        <div class="adm-sec-hdr">
+          <h3>Projects</h3>
+          <button class="adm-sm-btn primary" id="adm-add-proj-btn">+ Add Project</button>
+        </div>
+        <div id="adm-no-proj" style="text-align:center;padding:40px;color:var(--text-sub);font-size:.875rem;">No projects yet — add one above.</div>
+        <table class="adm-proj-tbl" id="adm-proj-tbl" style="display:none;">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th style="width:170px;">Progress</th>
+              <th style="width:170px;">Document Status</th>
+              <th style="width:230px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adm-proj-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Client form modal -->
+<div class="adm-form-ov" id="adm-cl-form-ov">
+  <div class="adm-form-box">
+    <div class="adm-form-ttl" id="adm-cl-form-ttl">Add Client</div>
+    <div class="adm-form-grid">
+      <div class="full adm-field"><label>Business / Client Name *</label><input class="adm-input" id="cf-name" placeholder="Acme Pty Ltd"></div>
+      <div class="adm-field"><label>Contact Name</label><input class="adm-input" id="cf-contact" placeholder="Jane Smith"></div>
+      <div class="adm-field"><label>ABN</label><input class="adm-input" id="cf-abn" placeholder="12 345 678 901"></div>
+      <div class="adm-field"><label>Email</label><input class="adm-input" id="cf-email" type="email" placeholder="jane@acme.com"></div>
+      <div class="adm-field"><label>Phone</label><input class="adm-input" id="cf-phone" placeholder="0400 000 000"></div>
+      <div class="full adm-field"><label>Address</label><input class="adm-input" id="cf-address" placeholder="123 Main St, Brisbane QLD 4000"></div>
+      <div class="full adm-field"><label>Notes</label><textarea class="adm-input" id="cf-notes" rows="3" placeholder="Any notes about this client..." style="resize:vertical;"></textarea></div>
+    </div>
+    <div class="adm-form-acts">
+      <button class="adm-cancel-btn" id="adm-cl-form-cancel" style="width:auto;padding:10px 20px;margin:0;">Cancel</button>
+      <button class="adm-btn" id="adm-cl-form-save" style="width:auto;padding:10px 24px;margin:0;">Save Client</button>
+    </div>
+  </div>
+</div>
+
+<!-- Project form modal -->
+<div class="adm-form-ov" id="adm-proj-form-ov">
+  <div class="adm-form-box">
+    <div class="adm-form-ttl" id="adm-proj-form-ttl">Add Project</div>
+    <div class="adm-form-grid">
+      <div class="full adm-field"><label>Project Name *</label><input class="adm-input" id="pf-name" placeholder="Website Redesign"></div>
+      <div class="full adm-field"><label>Description</label><textarea class="adm-input" id="pf-desc" rows="2" placeholder="Brief description of the work..." style="resize:vertical;"></textarea></div>
+      <div class="adm-field">
+        <label>Progress</label>
+        <select class="adm-input" id="pf-prog">
+          <option value="not-started">Not Started</option>
+          <option value="started">Started</option>
+          <option value="near-completion">Near Completion</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+      <div class="adm-field">
+        <label>Document Status</label>
+        <select class="adm-input" id="pf-docst">
+          <option value="none">None</option>
+          <option value="quote">Quote</option>
+          <option value="ready-to-invoice">Ready to Invoice</option>
+          <option value="invoice-sent">Invoice Sent</option>
+        </select>
+      </div>
+    </div>
+    <div class="adm-form-acts">
+      <button class="adm-cancel-btn" id="adm-proj-cancel" style="width:auto;padding:10px 20px;margin:0;">Cancel</button>
+      <button class="adm-btn" id="adm-proj-save" style="width:auto;padding:10px 24px;margin:0;">Save Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- Document builder overlay -->
+<div class="adm-doc-ov" id="adm-doc-ov">
+  <div class="adm-doc-tb">
+    <div>
+      <div id="adm-doc-ttl" style="font-size:1rem;font-weight:800;letter-spacing:-.02em;"></div>
+      <div id="adm-doc-num" style="font-size:.75rem;color:var(--text-sub);margin-top:2px;"></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <button class="adm-sm-btn primary" id="adm-doc-print">⬇ Save as PDF / Print</button>
+      <button class="adm-cancel-btn" id="adm-doc-close" style="width:auto;padding:8px 18px;margin:0;">Close</button>
+    </div>
+  </div>
+  <div class="adm-doc-body">
+    <div class="adm-doc-form">
+      <h3>Document Details</h3>
+      <div class="adm-form-grid" style="margin-bottom:20px;">
+        <div class="adm-field"><label>Issue Date</label><input class="adm-input" id="doc-date" type="date"></div>
+        <div class="adm-field"><label>Due Date <span style="font-weight:400;opacity:.55;">(auto 30 days)</span></label><input class="adm-input" id="doc-due" type="date"></div>
+        <div class="full adm-field"><label>Notes / Terms <span style="font-weight:400;opacity:.55;">(optional)</span></label><textarea class="adm-input" id="doc-notes" rows="2" placeholder="e.g. Bank transfer preferred. Please reference invoice number with payment." style="resize:vertical;"></textarea></div>
+      </div>
+      <h3>Line Items <span style="font-size:.78rem;font-weight:400;color:var(--text-sub);">— all prices entered are GST-inclusive</span></h3>
+      <table class="adm-items-tbl">
+        <thead>
+          <tr>
+            <th style="width:44%;">Description</th>
+            <th style="width:10%;text-align:center;">Qty</th>
+            <th style="width:22%;text-align:right;">Unit Price (inc. GST)</th>
+            <th class="r" style="width:18%;">Total (inc. GST)</th>
+            <th style="width:6%;"></th>
+          </tr>
+        </thead>
+        <tbody id="adm-items-body"></tbody>
+      </table>
+      <button class="adm-sm-btn" id="adm-add-item-btn" style="font-size:.78rem;margin-bottom:16px;">+ Add Line Item</button>
+      <div class="adm-totals">
+        <div class="adm-tot-row"><span>Subtotal (inc. GST)</span><span id="tot-sub">$0.00</span></div>
+        <div class="adm-tot-row sep"><span>GST Component (10%)</span><span id="tot-gst">$0.00</span></div>
+        <div class="adm-tot-row small"><span>Ex-GST Amount</span><span id="tot-exgst">$0.00</span></div>
+        <div class="adm-tot-row grand"><span>Total Amount Due</span><span id="tot-grand" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">$0.00</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── ADMIN SYSTEM ─────────────────────────────────────────────────────────────
+(function () {
+  const ADMIN_EMAIL = 'admin@stratify-systems.com';
+  const ADMIN_PASS  = 'Adm1n@Stratify';
+
+  const S = {
+    get: k => { try { return JSON.parse(localStorage.getItem('ss_adm_' + k)); } catch(e) { return null; } },
+    set: (k, v) => localStorage.setItem('ss_adm_' + k, JSON.stringify(v))
+  };
+  const getClients  = () => S.get('clients')  || [];
+  const saveClients = v  => S.set('clients', v);
+  const getProjects = () => S.get('projects') || [];
+  const saveProjects = v => S.set('projects', v);
+
+  function nextNum(type) {
+    const n = (S.get(type + '_seq') || 0) + 1;
+    S.set(type + '_seq', n);
+    return (type === 'qt' ? 'QT-' : 'INV-') + String(n).padStart(4, '0');
+  }
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function fmt(n) {
+    const v = parseFloat(n) || 0;
+    return '$' + v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function initials(name) { return name.trim().split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2); }
+  function fmtDate(s) {
+    if (!s) return '—';
+    const d = new Date(s + 'T00:00:00');
+    return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  let curClientId = null, editClId = null, editProjId = null;
+  let docType = 'qt', docClientId = null, docProjId = null, docItems = [], docNum = '';
+
+  const loginOv   = document.getElementById('adm-login-ov');
+  const admPanel  = document.getElementById('adm-panel');
+  const clList    = document.getElementById('adm-cl-list');
+  const welcome   = document.getElementById('adm-welcome');
+  const clDetail  = document.getElementById('adm-cl-detail');
+  const projBody  = document.getElementById('adm-proj-body');
+  const projTbl   = document.getElementById('adm-proj-tbl');
+  const noProj    = document.getElementById('adm-no-proj');
+  const clFormOv  = document.getElementById('adm-cl-form-ov');
+  const prFormOv  = document.getElementById('adm-proj-form-ov');
+  const docOv     = document.getElementById('adm-doc-ov');
+  const itemsBody = document.getElementById('adm-items-body');
+
+  // ── Nav button ──
+  document.getElementById('adm-nav-btn').addEventListener('click', () => {
+    loginOv.classList.add('open');
+    setTimeout(() => document.getElementById('adm-ei').focus(), 180);
+  });
+
+  // ── Login ──
+  function doLogin() {
+    const email = document.getElementById('adm-ei').value.trim().toLowerCase();
+    const pass  = document.getElementById('adm-pi').value;
+    const err   = document.getElementById('adm-lerr');
+    if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
+      loginOv.classList.remove('open');
+      admPanel.classList.add('open');
+      document.getElementById('adm-ei').value = '';
+      document.getElementById('adm-pi').value = '';
+      err.classList.remove('show');
+      renderClients();
+    } else {
+      err.classList.add('show');
+      ['adm-ei', 'adm-pi'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('err');
+        setTimeout(() => el.classList.remove('err'), 1400);
+      });
+    }
+  }
+  document.getElementById('adm-login-btn').addEventListener('click', doLogin);
+  document.getElementById('adm-pi').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+  document.getElementById('adm-login-cancel').addEventListener('click', () => loginOv.classList.remove('open'));
+  loginOv.addEventListener('click', e => { if (e.target === loginOv) loginOv.classList.remove('open'); });
+
+  // ── Logout ──
+  document.getElementById('adm-logout-btn').addEventListener('click', () => {
+    admPanel.classList.remove('open');
+    curClientId = null;
+  });
+
+  // ── Render client sidebar ──
+  function renderClients() {
+    const q   = (document.getElementById('adm-search').value || '').toLowerCase();
+    const all = getClients();
+    const list = q ? all.filter(c => c.name.toLowerCase().includes(q) || (c.contact || '').toLowerCase().includes(q)) : all;
+    clList.innerHTML = '';
+    if (!list.length) {
+      clList.innerHTML = '<div style="padding:20px;text-align:center;font-size:.8rem;color:var(--text-sub);">' + (q ? 'No results' : 'No clients yet') + '</div>';
+      return;
+    }
+    list.forEach(c => {
+      const pCount = getProjects().filter(p => p.clientId === c.id).length;
+      const el = document.createElement('div');
+      el.className = 'adm-client-item' + (c.id === curClientId ? ' active' : '');
+      el.innerHTML = '<div class="adm-client-av">' + initials(c.name) + '</div><div><div class="adm-client-nm">' + c.name + '</div><div class="adm-client-sub">' + pCount + ' project' + (pCount !== 1 ? 's' : '') + '</div></div>';
+      el.addEventListener('click', () => selectClient(c.id));
+      clList.appendChild(el);
+    });
+  }
+  document.getElementById('adm-search').addEventListener('input', renderClients);
+
+  // ── Select client ──
+  function selectClient(id) {
+    curClientId = id;
+    const c = getClients().find(x => x.id === id);
+    if (!c) return;
+    welcome.style.display = 'none';
+    clDetail.classList.add('show');
+    document.getElementById('adm-det-name').textContent = c.name;
+    document.getElementById('adm-det-meta').textContent = [c.contact, c.email, c.phone].filter(Boolean).join(' · ');
+    const fields = [
+      { l: 'Contact', v: c.contact }, { l: 'Email', v: c.email },
+      { l: 'Phone', v: c.phone },     { l: 'ABN', v: c.abn },
+      { l: 'Address', v: c.address }, { l: 'Notes', v: c.notes }
+    ];
+    document.getElementById('adm-info-grid').innerHTML = fields.map(f =>
+      '<div class="adm-info-card"><div class="adm-info-lbl">' + f.l + '</div><div class="adm-info-val">' + (f.v || '—') + '</div></div>'
+    ).join('');
+    renderProjects();
+    renderClients();
+  }
+
+  const PROG = { 'not-started': 'Not Started', 'started': 'Started', 'near-completion': 'Near Completion', 'completed': 'Completed' };
+  const DOCS = { 'none': 'None', 'quote': 'Quote', 'ready-to-invoice': 'Ready to Invoice', 'invoice-sent': 'Invoice Sent' };
+
+  // ── Render projects ──
+  function renderProjects() {
+    if (!curClientId) return;
+    const projs = getProjects().filter(p => p.clientId === curClientId);
+    projBody.innerHTML = '';
+    noProj.style.display  = projs.length ? 'none'  : 'block';
+    projTbl.style.display = projs.length ? 'table' : 'none';
+    projs.forEach(p => {
+      const tr = document.createElement('tr');
+      const progOpts = Object.entries(PROG).map(([v, l]) => '<option value="' + v + '"' + (v === p.progress ? ' selected' : '') + '>' + l + '</option>').join('');
+      const docOpts  = Object.entries(DOCS).map(([v, l]) => '<option value="' + v + '"' + (v === p.docStatus ? ' selected' : '') + '>' + l + '</option>').join('');
+      tr.innerHTML =
+        '<td><div class="proj-nm">' + p.name + '</div>' + (p.desc ? '<div class="proj-ds">' + p.desc + '</div>' : '') + '</td>' +
+        '<td><div class="prog-badge ' + p.progress + '"><select class="badge-sel" data-id="' + p.id + '" data-field="progress">' + progOpts + '</select></div></td>' +
+        '<td><div class="doc-badge ' + p.docStatus + '"><select class="badge-sel" data-id="' + p.id + '" data-field="docStatus">' + docOpts + '</select></div></td>' +
+        '<td><div style="display:flex;gap:5px;flex-wrap:wrap;">' +
+          '<button class="adm-sm-btn" data-action="quote" data-id="' + p.id + '" style="font-size:.75rem;padding:5px 9px;">📄 Quote</button>' +
+          '<button class="adm-sm-btn" data-action="invoice" data-id="' + p.id + '" style="font-size:.75rem;padding:5px 9px;">🧾 Invoice</button>' +
+          '<button class="adm-sm-btn" data-action="edit" data-id="' + p.id + '" style="font-size:.75rem;padding:5px 9px;">Edit</button>' +
+          '<button class="adm-sm-btn danger" data-action="del" data-id="' + p.id + '" style="font-size:.75rem;padding:5px 9px;">✕</button>' +
+        '</div></td>';
+      projBody.appendChild(tr);
+    });
+
+    projBody.querySelectorAll('.badge-sel').forEach(sel => {
+      sel.addEventListener('change', () => {
+        const all = getProjects();
+        const p   = all.find(x => x.id === sel.dataset.id);
+        if (!p) return;
+        p[sel.dataset.field] = sel.value;
+        saveProjects(all);
+        renderProjects();
+      });
+    });
+
+    projBody.querySelectorAll('[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const { action, id } = btn.dataset;
+        if (action === 'edit')    openProjForm(id);
+        else if (action === 'del')     deleteProj(id);
+        else if (action === 'quote')   openDoc('qt', id);
+        else if (action === 'invoice') openDoc('inv', id);
+      });
+    });
+  }
+
+  // ── Client CRUD ──
+  document.getElementById('adm-add-cl-btn').addEventListener('click', () => openClForm(null));
+  document.getElementById('adm-edit-cl').addEventListener('click', () => openClForm(curClientId));
+  document.getElementById('adm-del-cl').addEventListener('click', () => {
+    if (!curClientId || !confirm('Delete this client and all their projects?')) return;
+    saveClients(getClients().filter(c => c.id !== curClientId));
+    saveProjects(getProjects().filter(p => p.clientId !== curClientId));
+    curClientId = null;
+    clDetail.classList.remove('show');
+    welcome.style.display = '';
+    renderClients();
+  });
+
+  function openClForm(id) {
+    editClId = id;
+    const c = id ? getClients().find(x => x.id === id) : null;
+    document.getElementById('adm-cl-form-ttl').textContent = id ? 'Edit Client' : 'Add Client';
+    document.getElementById('cf-name').value    = c ? c.name    : '';
+    document.getElementById('cf-contact').value = c ? c.contact : '';
+    document.getElementById('cf-abn').value     = c ? c.abn     : '';
+    document.getElementById('cf-email').value   = c ? c.email   : '';
+    document.getElementById('cf-phone').value   = c ? c.phone   : '';
+    document.getElementById('cf-address').value = c ? c.address : '';
+    document.getElementById('cf-notes').value   = c ? c.notes   : '';
+    clFormOv.classList.add('open');
+    setTimeout(() => document.getElementById('cf-name').focus(), 120);
+  }
+  document.getElementById('adm-cl-form-cancel').addEventListener('click', () => clFormOv.classList.remove('open'));
+  clFormOv.addEventListener('click', e => { if (e.target === clFormOv) clFormOv.classList.remove('open'); });
+
+  document.getElementById('adm-cl-form-save').addEventListener('click', () => {
+    const name = document.getElementById('cf-name').value.trim();
+    if (!name) { document.getElementById('cf-name').classList.add('err'); return; }
+    document.getElementById('cf-name').classList.remove('err');
+    const data = {
+      name,
+      contact: document.getElementById('cf-contact').value.trim(),
+      abn:     document.getElementById('cf-abn').value.trim(),
+      email:   document.getElementById('cf-email').value.trim(),
+      phone:   document.getElementById('cf-phone').value.trim(),
+      address: document.getElementById('cf-address').value.trim(),
+      notes:   document.getElementById('cf-notes').value.trim()
+    };
+    const all = getClients();
+    if (editClId) {
+      const c = all.find(x => x.id === editClId);
+      if (c) Object.assign(c, data);
+    } else {
+      all.push(Object.assign({ id: uid(), createdAt: new Date().toISOString() }, data));
+    }
+    saveClients(all);
+    clFormOv.classList.remove('open');
+    renderClients();
+    if (editClId === curClientId) selectClient(curClientId);
+    else if (!editClId) selectClient(all[all.length - 1].id);
+  });
+
+  // ── Project CRUD ──
+  document.getElementById('adm-add-proj-btn').addEventListener('click', () => openProjForm(null));
+  document.getElementById('adm-proj-cancel').addEventListener('click', () => prFormOv.classList.remove('open'));
+  prFormOv.addEventListener('click', e => { if (e.target === prFormOv) prFormOv.classList.remove('open'); });
+
+  function openProjForm(id) {
+    editProjId = id;
+    const p = id ? getProjects().find(x => x.id === id) : null;
+    document.getElementById('adm-proj-form-ttl').textContent = id ? 'Edit Project' : 'Add Project';
+    document.getElementById('pf-name').value  = p ? p.name      : '';
+    document.getElementById('pf-desc').value  = p ? p.desc      : '';
+    document.getElementById('pf-prog').value  = p ? p.progress  : 'not-started';
+    document.getElementById('pf-docst').value = p ? p.docStatus : 'none';
+    prFormOv.classList.add('open');
+    setTimeout(() => document.getElementById('pf-name').focus(), 120);
+  }
+
+  document.getElementById('adm-proj-save').addEventListener('click', () => {
+    const name = document.getElementById('pf-name').value.trim();
+    if (!name) { document.getElementById('pf-name').classList.add('err'); return; }
+    document.getElementById('pf-name').classList.remove('err');
+    const data = {
+      name,
+      desc:      document.getElementById('pf-desc').value.trim(),
+      progress:  document.getElementById('pf-prog').value,
+      docStatus: document.getElementById('pf-docst').value
+    };
+    const all = getProjects();
+    if (editProjId) {
+      const p = all.find(x => x.id === editProjId);
+      if (p) Object.assign(p, data, { updatedAt: new Date().toISOString() });
+    } else {
+      all.push(Object.assign({ id: uid(), clientId: curClientId, createdAt: new Date().toISOString() }, data));
+    }
+    saveProjects(all);
+    prFormOv.classList.remove('open');
+    renderProjects();
+  });
+
+  function deleteProj(id) {
+    if (!confirm('Delete this project?')) return;
+    saveProjects(getProjects().filter(p => p.id !== id));
+    renderProjects();
+  }
+
+  // ── Document builder ──
+  function openDoc(type, projId) {
+    docType = type; docProjId = projId; docClientId = curClientId;
+    docNum   = nextNum(type);
+    docItems = [{ id: uid(), desc: '', qty: 1, unit: '' }];
+    document.getElementById('adm-doc-ttl').textContent = type === 'qt' ? 'Create Quote' : 'Create Invoice';
+    document.getElementById('adm-doc-num').textContent = docNum;
+    const today = new Date();
+    const due   = new Date(); due.setDate(due.getDate() + 30);
+    document.getElementById('doc-date').value  = today.toISOString().slice(0, 10);
+    document.getElementById('doc-due').value   = due.toISOString().slice(0, 10);
+    document.getElementById('doc-notes').value = '';
+    renderItems();
+    docOv.classList.add('open');
+  }
+
+  document.getElementById('doc-date').addEventListener('change', function () {
+    const d = new Date(this.value + 'T00:00:00');
+    d.setDate(d.getDate() + 30);
+    document.getElementById('doc-due').value = d.toISOString().slice(0, 10);
+  });
+
+  function renderItems() {
+    itemsBody.innerHTML = '';
+    docItems.forEach((item, i) => {
+      const lt = (parseFloat(item.qty) || 0) * (parseFloat(item.unit) || 0);
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><input class="adm-item-in" placeholder="Description of service / product" value="' + item.desc + '" data-i="' + i + '" data-f="desc"></td>' +
+        '<td><input class="adm-item-in" type="number" min="0" step="any" value="' + item.qty + '" data-i="' + i + '" data-f="qty" style="text-align:center;width:60px;"></td>' +
+        '<td><input class="adm-item-in" type="number" min="0" step="0.01" placeholder="0.00" value="' + (item.unit || '') + '" data-i="' + i + '" data-f="unit" style="text-align:right;"></td>' +
+        '<td style="text-align:right;padding-right:6px;font-size:.875rem;color:var(--text);font-weight:600;" class="row-tot">' + fmt(lt) + '</td>' +
+        '<td><button class="adm-item-del" data-i="' + i + '">×</button></td>';
+      itemsBody.appendChild(tr);
+    });
+
+    itemsBody.querySelectorAll('.adm-item-in').forEach(inp => {
+      inp.addEventListener('input', () => {
+        const i = +inp.dataset.i;
+        docItems[i][inp.dataset.f] = inp.value;
+        const lt = (parseFloat(docItems[i].qty) || 0) * (parseFloat(docItems[i].unit) || 0);
+        inp.closest('tr').querySelector('.row-tot').textContent = fmt(lt);
+        updateTotals();
+      });
+    });
+    itemsBody.querySelectorAll('.adm-item-del').forEach(btn => {
+      btn.addEventListener('click', () => {
+        docItems.splice(+btn.dataset.i, 1);
+        if (!docItems.length) docItems.push({ id: uid(), desc: '', qty: 1, unit: '' });
+        renderItems();
+      });
+    });
+    updateTotals();
+  }
+
+  function updateTotals() {
+    const sub = docItems.reduce((s, it) => s + (parseFloat(it.qty) || 0) * (parseFloat(it.unit) || 0), 0);
+    const gst = sub / 11;
+    document.getElementById('tot-sub').textContent   = fmt(sub);
+    document.getElementById('tot-gst').textContent   = fmt(gst);
+    document.getElementById('tot-exgst').textContent = fmt(sub - gst);
+    document.getElementById('tot-grand').textContent = fmt(sub);
+  }
+
+  document.getElementById('adm-add-item-btn').addEventListener('click', () => {
+    docItems.push({ id: uid(), desc: '', qty: 1, unit: '' });
+    renderItems();
+  });
+
+  document.getElementById('adm-doc-close').addEventListener('click', () => docOv.classList.remove('open'));
+
+  // ── Generate print window ──
+  document.getElementById('adm-doc-print').addEventListener('click', () => {
+    const c     = getClients().find(x => x.id === docClientId) || {};
+    const issD  = document.getElementById('doc-date').value;
+    const dueD  = document.getElementById('doc-due').value;
+    const notes = document.getElementById('doc-notes').value.trim();
+    const sub   = docItems.reduce((s, it) => s + (parseFloat(it.qty) || 0) * (parseFloat(it.unit) || 0), 0);
+    const gst   = sub / 11;
+    const ex    = sub - gst;
+    const rows  = docItems.filter(it => it.desc || it.unit).map(it => {
+      const total = (parseFloat(it.qty) || 0) * (parseFloat(it.unit) || 0);
+      return '<tr><td class="td-d">' + (it.desc || '—') + '</td><td class="td-c">' + (parseFloat(it.qty) || 1) + '</td><td class="td-r">' + fmt(parseFloat(it.unit) || 0) + '</td><td class="td-r td-b">' + fmt(total) + '</td></tr>';
+    }).join('');
+    const clientInfo = [c.contact, c.email, c.phone, c.address, c.abn ? 'ABN: ' + c.abn : ''].filter(Boolean).join('<br>');
+    const typeLabel  = docType === 'qt' ? 'QUOTE' : 'INVOICE';
+    const payRef     = docType === 'qt' ? 'quote acceptance' : 'invoice date';
+
+    const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>' + docNum + ' — Stratify Systems</title>' +
+      '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">' +
+      '<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}' +
+      ':root{--bg:#09090b;--bg2:#18181b;--acc:#7c3aed;--acc2:#3b82f6;--acc3:#FBBF24;--grad:linear-gradient(135deg,#7c3aed,#3b82f6);--t:#fafafa;--tm:#a1a1aa;--ts:#71717a;--gb:rgba(255,255,255,0.08);--r:10px}' +
+      'body{font-family:\'Inter\',sans-serif;background:#050507;color:var(--t);padding:32px 16px}' +
+      '@media print{body{background:transparent;padding:0}.page{margin:0;box-shadow:none;width:100%;min-height:100vh;break-after:page}.no-print{display:none!important}}' +
+      '.page{width:210mm;min-height:297mm;margin:0 auto 40px;position:relative;overflow:hidden;background:var(--bg);box-shadow:0 20px 80px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.05);display:flex;flex-direction:column}' +
+      '.wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;overflow:hidden}' +
+      '.wm-t{font-size:80px;font-weight:900;letter-spacing:-.04em;color:rgba(124,58,237,.038);transform:rotate(-34deg);white-space:nowrap;user-select:none}' +
+      '.orb{position:absolute;border-radius:50%;filter:blur(55px);pointer-events:none;z-index:0}' +
+      '.o1{width:320px;height:320px;background:radial-gradient(circle,rgba(124,58,237,.2),transparent 70%);top:-90px;right:-60px}' +
+      '.o2{width:240px;height:240px;background:radial-gradient(circle,rgba(59,130,246,.13),transparent 70%);bottom:60px;left:-50px}' +
+      '.grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(ellipse 85% 85% at 50% 45%,black 25%,transparent 100%);pointer-events:none}' +
+      '.gt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}' +
+      '.hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--gb);background:rgba(255,255,255,.015);flex-shrink:0;position:relative;z-index:1}' +
+      '.lr{display:flex;align-items:center;gap:10px}.lw{font-size:14px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em}' +
+      '.dt{font-size:22px;font-weight:800;letter-spacing:-.04em}.dn{font-size:10px;color:var(--ts);font-weight:600;margin-top:2px;text-align:right}' +
+      '.body{padding:28px 36px 70px;flex:1;position:relative;z-index:1}' +
+      '.parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:26px}' +
+      '.pl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--acc3);margin-bottom:7px}' +
+      '.pn{font-size:13px;font-weight:800;letter-spacing:-.02em;margin-bottom:5px}.pd{font-size:9.5px;color:var(--tm);line-height:1.72}' +
+      '.dates{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;margin-bottom:24px}' +
+      '.dc{padding:12px 16px;border-right:1px solid var(--gb)}.dc:last-child{border-right:none}' +
+      '.dcl{font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ts);margin-bottom:4px}.dcv{font-size:11px;font-weight:700}' +
+      'table.inv{width:100%;border-collapse:collapse;font-size:10px}' +
+      'table.inv th{text-align:left;padding:9px 11px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ts);border-bottom:1px solid var(--gb);background:rgba(255,255,255,.02)}' +
+      'table.inv td{padding:10px 11px;color:var(--tm);border-bottom:1px solid rgba(255,255,255,.03);vertical-align:top;line-height:1.5}table.inv tr:last-child td{border-bottom:none}' +
+      '.td-d{color:var(--t);font-weight:500}.td-c{text-align:center}.td-r{text-align:right}.td-b{color:var(--t)!important;font-weight:700}' +
+      '.tots{display:flex;justify-content:flex-end;margin-top:16px}.tb{width:264px}' +
+      '.tr{display:flex;justify-content:space-between;padding:5px 0;font-size:10px;color:var(--tm);border-bottom:1px solid rgba(255,255,255,.03)}.tr:last-child{border-bottom:none}' +
+      '.tr.sep{border-top:1px solid rgba(255,255,255,.09);margin-top:6px;padding-top:10px}.tr.grand{font-size:15px;font-weight:800;color:var(--t);padding-top:10px}' +
+      '.tr.sm{font-size:8.5px;color:var(--ts);font-style:italic}' +
+      '.nb{background:rgba(255,255,255,.025);border:1px solid var(--gb);border-radius:var(--r);padding:12px 16px;margin-top:18px}' +
+      '.nl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc3);margin-bottom:6px}.nt{font-size:9.5px;color:var(--tm);line-height:1.72}' +
+      '.pb{background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(59,130,246,.05));border:1px solid rgba(124,58,237,.2);border-radius:var(--r);padding:14px 18px;margin-top:14px}' +
+      '.ptl{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#a78bfa;margin-bottom:7px}.ptd{font-size:9.5px;color:var(--tm);line-height:1.72}' +
+      '.ftr{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:10px 36px;border-top:1px solid var(--gb);background:rgba(255,255,255,.012);z-index:1}' +
+      '.fl{font-size:8px;color:var(--ts)}.fr{font-size:8px;color:var(--ts);font-weight:600}' +
+      '.pbar{max-width:210mm;margin:0 auto 16px;display:flex;gap:10px;align-items:center}' +
+      '.pbtn{padding:10px 22px;border:none;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;font-weight:700;font-size:.875rem;cursor:pointer;font-family:\'Inter\',sans-serif}' +
+      '</style></head><body>' +
+      '<div class="pbar no-print"><button class="pbtn" onclick="window.print()">Save as PDF / Print</button>' +
+      '<span style="font-size:.8rem;color:#71717a;">In print dialog → select “Save as PDF” → set Margins to None.</span></div>' +
+      '<div class="page">' +
+        '<div class="wm"><span class="wm-t">Stratify Systems</span></div>' +
+        '<div class="orb o1"></div><div class="orb o2"></div><div class="grid"></div>' +
+        '<div class="hdr">' +
+          '<div class="lr">' +
+            '<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs>' +
+            '<rect width="28" height="28" rx="6" fill="url(#lg)" opacity=".12"/>' +
+            '<rect x="6" y="7.5" width="16" height="2.8" rx="1.4" fill="url(#lg)"/>' +
+            '<rect x="6" y="12.6" width="11" height="2.8" rx="1.4" fill="url(#lg)"/>' +
+            '<rect x="6" y="17.7" width="7" height="2.8" rx="1.4" fill="url(#lg)"/></svg>' +
+            '<div><div class="lw">Stratify Systems</div><div style="font-size:8px;color:#71717a;margin-top:1px;">AI &amp; Technology Consulting</div></div>' +
+          '</div>' +
+          '<div style="text-align:right;"><div class="dt gt">' + typeLabel + '</div><div class="dn">' + docNum + '</div></div>' +
+        '</div>' +
+        '<div class="body">' +
+          '<div class="parties">' +
+            '<div><div class="pl">From</div><div class="pn">Stratify Systems</div>' +
+            '<div class="pd">Brady Nicholson — Founder<br>admin@stratify-systems.com<br>0479 092 667<br>Queensland, Australia<br>ABN: 85 187 912 889</div></div>' +
+            '<div><div class="pl">To</div><div class="pn">' + (c.name || '—') + '</div><div class="pd">' + (clientInfo || '—') + '</div></div>' +
+          '</div>' +
+          '<div class="dates">' +
+            '<div class="dc"><div class="dcl">' + typeLabel + ' Number</div><div class="dcv">' + docNum + '</div></div>' +
+            '<div class="dc"><div class="dcl">Issue Date</div><div class="dcv">' + fmtDate(issD) + '</div></div>' +
+            '<div class="dc"><div class="dcl">Due Date</div><div class="dcv">' + fmtDate(dueD) + '</div></div>' +
+          '</div>' +
+          '<table class="inv"><thead><tr>' +
+            '<th style="width:48%">Description</th>' +
+            '<th class="td-c" style="width:10%">Qty</th>' +
+            '<th class="td-r" style="width:22%">Unit Price (inc. GST)</th>' +
+            '<th class="td-r" style="width:20%">Total (inc. GST)</th>' +
+          '</tr></thead><tbody>' + rows + '</tbody></table>' +
+          '<div class="tots"><div class="tb">' +
+            '<div class="tr"><span>Subtotal (inc. GST)</span><span>' + fmt(sub) + '</span></div>' +
+            '<div class="tr sep sm"><span>GST Component (10%)</span><span>' + fmt(gst) + '</span></div>' +
+            '<div class="tr sm"><span>Ex-GST Amount</span><span>' + fmt(ex) + '</span></div>' +
+            '<div class="tr grand"><span>Total Due</span><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">' + fmt(sub) + '</span></div>' +
+          '</div></div>' +
+          (notes ? '<div class="nb"><div class="nl">Notes</div><div class="nt">' + notes + '</div></div>' : '') +
+          '<div class="pb"><div class="ptl">Payment Terms</div><div class="ptd">Payment is due within 30 days of the ' + payRef + ' (by ' + fmtDate(dueD) + '). Please reference <strong style="color:var(--t)">' + docNum + '</strong> with your payment. Bank transfer preferred — account details available on request.</div></div>' +
+        '</div>' +
+        '<div class="ftr"><div class="fl">admin@stratify-systems.com · 0479 092 667 · ABN: 85 187 912 889</div><div class="fr">stratifysystems.com.au</div></div>' +
+      '</div>' +
+    '</body></html>';
+
+    const w = window.open('', '_blank');
+    if (w) { w.document.write(html); w.document.close(); }
+    else alert('Please allow pop-ups to preview documents.');
+  });
+
 })();
 </script>
 </body>
